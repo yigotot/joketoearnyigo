@@ -5,8 +5,9 @@ import { Joketoearn } from '../target/types/joketoearn';
 describe('joketoearn', () => {
   let provider = anchor.AnchorProvider.env();
   anchor.setProvider(anchor.AnchorProvider.env());
+  anchor.setProvider(provider);
+  const program = anchor.workspace.Joketoearn;
 
-  const program = anchor.workspace.Joketoearn as Program<Joketoearn>;
 
   it('It Creates a Joke!', async () => {
     const tx = await program.rpc.createJoke('Not funny..', {
@@ -19,4 +20,4 @@ describe('joketoearn', () => {
   
     console.log("Your transaction signature", tx);
   });
-}
+});

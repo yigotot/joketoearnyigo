@@ -19,5 +19,5 @@ pub mod joketoearn {
 pub struct CreateJokeCtx<'info> {
     pub authority: Signer<'info>,
     #[account(address = anchor_lang::solana_program::system_program::ID)]
-    pub system_program: AccountInfo<'info>
+    pub system_program: Signer<'info>
 }
